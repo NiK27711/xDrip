@@ -81,6 +81,7 @@ import com.eveningoutpost.dexdrip.cloud.nightlite.NightLiteQR;
 import com.eveningoutpost.dexdrip.healthconnect.HealthConnectEntry;
 import com.eveningoutpost.dexdrip.healthconnect.HealthGamut;
 import com.eveningoutpost.dexdrip.insulin.inpen.InPenEntry;
+import com.eveningoutpost.dexdrip.nocturne.NocturneConnectHelper;
 import com.eveningoutpost.dexdrip.models.DesertSync;
 import com.eveningoutpost.dexdrip.models.JoH;
 import com.eveningoutpost.dexdrip.models.Profile;
@@ -1159,6 +1160,18 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
             bindPreferenceSummaryToValue(findPreference("cloud_storage_mongodb_uri"));
             bindPreferenceSummaryToValue(findPreference("cloud_storage_mongodb_collection"));
             bindPreferenceSummaryToValue(findPreference("cloud_storage_mongodb_device_status_collection"));
+
+            final Preference nocturneConnectPref = findPreference("nocturne_connect");
+            if (nocturneConnectPref != null) {
+                nocturneConnectPref.setOnPreferenceClickListener(preference -> {
+                    NocturneConnectHelper.startConnectFlow(getActivity());
+                    return true;
+                });
+            }
+            final Preference nocturneUrlPref = findPreference("nocturne_instance_url");
+            if (nocturneUrlPref != null) {
+                bindPreferenceSummaryToValue(nocturneUrlPref);
+            }
 
             addPreferencesFromResource(R.xml.pref_advanced_settings);
             addPreferencesFromResource(R.xml.xdrip_plus_prefs);
@@ -2649,7 +2662,7 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
                             if (AllPrefsFragment.this.prefs.getBoolean("plus_follow_master",false))
                             {
                                 AllPrefsFragment.this.prefs.edit().putBoolean("plus_follow_master", false).apply();
-                                JoH.static_toast(preference.getContext(),"Turning off xDrip+ Sync Master for Followers!",Toast.LENGTH_LONG);
+                                JoH.static_toast(preference.getContext(),"Turning off xDrip Sync Master for Followers!",Toast.LENGTH_LONG);
                             }
                             GcmActivity.requestBGsync();
                         }

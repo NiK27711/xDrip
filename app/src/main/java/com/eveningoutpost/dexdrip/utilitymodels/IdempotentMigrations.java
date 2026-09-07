@@ -7,7 +7,7 @@ import static com.eveningoutpost.dexdrip.utils.Preferences.MIN_GLUCOSE_INPUT;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.util.Log;
 
 import com.eveningoutpost.dexdrip.models.APStatus;
@@ -173,6 +173,11 @@ public class IdempotentMigrations {
         Pref.setBoolean("bluetooth_frequent_reset", false);
         Pref.setBoolean("use_transmiter_pl_bluetooth", false);
         Pref.setBoolean("use_rfduino_bluetooth", false);
+        Pref.setBoolean("use_notification_channels", true);
+        Pref.setBoolean("run_service_in_foreground", true);
+        Pref.setBoolean("notification_channels_grouping", false);
+        Pref.setBoolean("use_number_icon_large", false);
+        Pref.setBoolean("number_icon_large_arrow", false);
 
     }
 

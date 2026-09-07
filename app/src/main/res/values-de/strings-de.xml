@@ -428,7 +428,7 @@
     <string name="sdcard_not_writable_cannot_save">SD-Karte ist nicht beschreibbar - Speichern nicht möglich</string>
     <string name="sdcard_not_readable">SD-Karte ist nicht lesbar</string>
     <string name="loading_settings_from_xdrip_mainline">Einstellungen von xDrip Mainline laden</string>
-    <string name="warning_settings_from_xdrip_and_plus_exist">Warnung von xDrip und xDrip+ existieren - Lade xDrip+</string>
+    <string name="warning_settings_from_xdrip_and_plus_exist">Warnung: Einstellungen von xDrip und xDrip+ existieren - Lade xDrip+</string>
     <string name="new_version_date_colon">"Neue Version vom: "</string>
     <string name="old_version_date_colon">"Alte Version vom: "</string>
     <string name="speak_your_note_text">Bitte Notiztext sprechen</string>
@@ -1235,6 +1235,11 @@
     <string name="summary_tidepool_upload_no_treatment">Nur CGM Daten hochladen, um Duplikate mit manuellem Pump-Upload zu vermeiden</string>
     <string name="title_tidepool_upload_no_treatment">Keine Behandlungen hochladen</string>
     <string name="title_tidepool">Tidepool</string>
+    <!-- Nocturne connect flow -->
+    <string name="title_nocturne_upload_treatments">Behandlungen hochladen</string>
+    <string name="title_nocturne_use_mobile">Mobile Daten verwenden</string>
+    <!-- NocturneConnectActivity (deep link receiver) -->
+    <!-- NocturneConnectHelper (device flow UI) -->
     <string name="show_help">Hilfe anzeigen</string>
     <string name="load_save_settings_on_sdcard">Einstellungen von/auf SD-Karte laden/speichern</string>
     <string name="delete_all_bg_readings">Alle BG-Werte löschen</string>
