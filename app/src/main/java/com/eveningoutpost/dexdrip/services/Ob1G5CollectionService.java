@@ -626,6 +626,8 @@ public class Ob1G5CollectionService extends G5BaseService {
 
     private ScanFilter getBluetoothScanFilter()
     {
+        UserError.Log.d(TAG, "Current Build.VERSION.SDK_INT = " + Build.VERSION.SDK_INT);
+
         if( isBluetoothScanDoneByMacFilter() )
         {
             UserError.Log.d(TAG, "Using mac filter " + historicalTransmitterMAC);
@@ -635,18 +637,21 @@ public class Ob1G5CollectionService extends G5BaseService {
         }
         else if( !emptyString( historicalTransmitterMAC ) )
         {
+            UserError.Log.d(TAG, "Using empty ScanFilter having historicalTransmitterMAC = " + historicalTransmitterMAC);
             return new ScanFilter.Builder().build();
         }
         else if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
                 && transmitterID != null
                 && transmitterID.length() > 4 )
         {
+            UserError.Log.d(TAG, "Using ScanFilter with device name = " + getTransmitterBluetoothName() );
             return new ScanFilter.Builder()
                                  .setDeviceName( getTransmitterBluetoothName() )
                                  .build();
         }
         else
         {
+            UserError.Log.d(TAG, "Using ScanFilter with Service-UUID = " + getTransmitterBluetoothName() );
             return new ScanFilter.Builder()
                                  .setServiceUuid( new ParcelUuid(Advertisement), new ParcelUuid(Mask16) )
                                  .build();
